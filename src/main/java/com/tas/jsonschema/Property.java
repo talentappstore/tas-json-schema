@@ -10,11 +10,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Property {
 
 	private Type type;
+	private String title;
 	private String description;
 	private Boolean required;
 	private Format format;
 	private Integer propertyOrder;
 	private Integer minLength;
+	private Media media;
 	@JsonProperty("enum")
 	private List<String> _enum;
 	private Property items;
@@ -29,6 +31,14 @@ public class Property {
 
 	public void setType(Type type) {
 		this.type = type;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public String getDescription() {
@@ -69,6 +79,14 @@ public class Property {
 
 	public void setMinLength(Integer minLength) {
 		this.minLength = minLength;
+	}
+	
+	public Media getMedia() {
+		return media;
+	}
+
+	public void setMedia(Media media) {
+		this.media = media;
 	}
 
 	public Boolean getRequired() {
