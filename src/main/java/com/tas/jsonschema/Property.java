@@ -1,6 +1,8 @@
 package com.tas.jsonschema;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -19,6 +21,7 @@ public class Property {
 	private Media media;
 	@JsonProperty("enum")
 	private List<String> _enum;
+	private Map<String, Property> properties = new HashMap<String, Property>();
 	private Property items;
 	private Boolean uniqueItems;
 	
@@ -99,6 +102,14 @@ public class Property {
 
 	public void set_enum(List<String> _enum) {
 		this._enum = _enum;
+	}
+
+	public Map<String, Property> getProperties() {
+		return properties;
+	}
+
+	public void setProperties(Map<String, Property> properties) {
+		this.properties = properties;
 	}
 
 	public Property getItems() {
