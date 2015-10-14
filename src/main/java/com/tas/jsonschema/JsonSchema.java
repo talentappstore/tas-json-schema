@@ -15,6 +15,7 @@ public class JsonSchema {
 	private String title;
 	private Type type = Type.OBJECT;
 	private Map<String, Property> properties = new HashMap<String, Property>();
+	private Boolean additionalProperties;
 	
 	public JsonSchema() {
 	}
@@ -45,6 +46,14 @@ public class JsonSchema {
 
 	public void setProperties(Map<String, Property> properties) {
 		this.properties = properties;
+	}
+
+	public Boolean getAdditionalProperties() {
+		return additionalProperties;
+	}
+
+	public void setAdditionalProperties(Boolean additionalProperties) {
+		this.additionalProperties = additionalProperties;
 	}
 
 }
