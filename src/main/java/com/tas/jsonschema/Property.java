@@ -14,6 +14,7 @@ public class Property {
 	private Boolean required;
 	private Format format;
 	private Integer propertyOrder;
+	private Integer minLength;
 	@JsonProperty("enum")
 	private List<String> _enum;
 	private Property items;
@@ -60,6 +61,18 @@ public class Property {
 
 	public void setPropertyOrder(Integer propertyOrder) {
 		this.propertyOrder = propertyOrder;
+	}
+
+	public Integer getMinLength() {
+		return minLength;
+	}
+
+	public void setMinLength(Integer minLength) {
+		this.minLength = minLength;
+	}
+
+	public Boolean getRequired() {
+		return required;
 	}
 
 	public List<String> get_enum() {

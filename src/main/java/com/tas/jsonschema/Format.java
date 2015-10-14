@@ -12,6 +12,7 @@ public enum Format {
     month,
     number,
     range,
+    select,
     tel,
     text,
     textarea,
