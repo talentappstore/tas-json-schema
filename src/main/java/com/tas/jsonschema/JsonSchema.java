@@ -1,6 +1,8 @@
 package com.tas.jsonschema;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -16,6 +18,7 @@ public class JsonSchema {
 	private Type type = Type.OBJECT;
 	private Map<String, Property> properties = new HashMap<String, Property>();
 	private Boolean additionalProperties;
+	private List<String> required = new ArrayList<String>();
 	
 	public JsonSchema() {
 	}
@@ -54,6 +57,14 @@ public class JsonSchema {
 
 	public void setAdditionalProperties(Boolean additionalProperties) {
 		this.additionalProperties = additionalProperties;
+	}
+
+	public List<String> getRequired() {
+		return required;
+	}
+
+	public void setRequired(List<String> required) {
+		this.required = required;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.tas.jsonschema;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,15 +15,20 @@ public class Property {
 	private Type type;
 	private String title;
 	private String description;
-	private Boolean required;
+	@JsonProperty("default")
+	private String defaultText;
+	private List<String> required = new ArrayList<String>();
 	private Format format;
 	private Integer propertyOrder;
 	private Integer minLength;
+	private Integer minimum;
+	private Integer maxLength;
+	private Integer maximum;
 	private Media media;
 	@JsonProperty("enum")
 	private List<String> _enum;
 	private Map<String, Property> properties = new HashMap<String, Property>();
-	private Property items;
+	private List<Property> items = new ArrayList<Property>();
 	private Boolean uniqueItems;
 	
 	public Property() {
@@ -52,12 +58,12 @@ public class Property {
 		this.description = description;
 	}
 
-	public Boolean isRequired() {
-		return required;
+	public String getDefaultText() {
+		return defaultText;
 	}
 
-	public void setRequired(Boolean required) {
-		this.required = required;
+	public void setDefaultText(String defaultText) {
+		this.defaultText = defaultText;
 	}
 
 	public Format getFormat() {
@@ -84,6 +90,30 @@ public class Property {
 		this.minLength = minLength;
 	}
 	
+	public Integer getMinimum() {
+		return minimum;
+	}
+
+	public void setMinimum(Integer minimum) {
+		this.minimum = minimum;
+	}
+
+	public Integer getMaxLength() {
+		return maxLength;
+	}
+
+	public void setMaxLength(Integer maxLength) {
+		this.maxLength = maxLength;
+	}
+
+	public Integer getMaximum() {
+		return maximum;
+	}
+
+	public void setMaximum(Integer maximum) {
+		this.maximum = maximum;
+	}
+
 	public Media getMedia() {
 		return media;
 	}
@@ -92,8 +122,12 @@ public class Property {
 		this.media = media;
 	}
 
-	public Boolean getRequired() {
+	public List<String> getRequired() {
 		return required;
+	}
+
+	public void setRequired(List<String> required) {
+		this.required = required;
 	}
 
 	public List<String> get_enum() {
@@ -112,11 +146,11 @@ public class Property {
 		this.properties = properties;
 	}
 
-	public Property getItems() {
+	public List<Property> getItems() {
 		return items;
 	}
 
-	public void setItems(Property items) {
+	public void setItems(List<Property> items) {
 		this.items = items;
 	}
 

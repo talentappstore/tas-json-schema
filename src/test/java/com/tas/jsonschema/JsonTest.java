@@ -44,12 +44,15 @@ public class JsonTest {
 		Property arrayProperty = new Property();
 		arrayProperty.setType(Type.ARRAY);
 		arrayProperty.setFormat(Format.checkbox);
-		Property itemsProperty = new Property();
-		itemsProperty.setType(Type.STRING);
+		List<Property> itemsProperty = new ArrayList<Property>();
+		Property items = new Property();
+		items.setType(Type.STRING);
+		
 		List<String> itemsEnums = new ArrayList<String>();
 		itemsEnums.add("a");
 		itemsEnums.add("z");
-		itemsProperty.set_enum(itemsEnums);
+		items.set_enum(itemsEnums);
+		itemsProperty.add(items);
 		arrayProperty.setItems(itemsProperty);
 		arrayProperty.setUniqueItems(true);
 		jsonSchema.getProperties().put("array", arrayProperty);
