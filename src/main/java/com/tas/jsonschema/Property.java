@@ -28,7 +28,7 @@ public class Property {
 	@JsonProperty("enum")
 	private List<String> _enum;
 	private Map<String, Property> properties = new HashMap<String, Property>();
-	private List<Property> items = new ArrayList<Property>();
+	private Property items;
 	private Boolean uniqueItems;
 	
 	public Property() {
@@ -146,11 +146,11 @@ public class Property {
 		this.properties = properties;
 	}
 
-	public List<Property> getItems() {
+	public Property getItems() {
 		return items;
 	}
 
-	public void setItems(List<Property> items) {
+	public void setItems(Property items) {
 		this.items = items;
 	}
 
