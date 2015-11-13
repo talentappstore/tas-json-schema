@@ -24,6 +24,7 @@ public class Property {
 	private Integer minimum;
 	private Integer maxLength;
 	private Integer maximum;
+	private String pattern;
 	private Media media;
 	@JsonProperty("enum")
 	private List<String> _enum;
@@ -112,6 +113,14 @@ public class Property {
 
 	public void setMaximum(Integer maximum) {
 		this.maximum = maximum;
+	}
+
+	public String getPattern() {
+		return pattern;
+	}
+
+	public void setPattern(String pattern) {
+		this.pattern = pattern;
 	}
 
 	public Media getMedia() {
