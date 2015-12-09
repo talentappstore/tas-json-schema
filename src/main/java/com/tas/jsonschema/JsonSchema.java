@@ -1,5 +1,6 @@
 package com.tas.jsonschema;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +16,7 @@ public class JsonSchema {
 	@JsonProperty("$schema")
 	private String schema;
 	private String title;
+	private URI id;
 	private Type type = Type.OBJECT;
 	private Map<String, Property> properties = new HashMap<String, Property>();
 	private Boolean additionalProperties;
@@ -37,6 +39,14 @@ public class JsonSchema {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public URI getId() {
+		return id;
+	}
+
+	public void setId(URI id) {
+		this.id = id;
 	}
 
 	public Type getType() {
