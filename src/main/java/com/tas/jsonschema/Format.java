@@ -18,6 +18,8 @@ public enum Format {
     textarea,
     time,
     url,
-    week;
+    week,
+    tasComment,
+    tasBreak;
 
 }

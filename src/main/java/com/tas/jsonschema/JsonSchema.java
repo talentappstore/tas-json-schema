@@ -1,10 +1,10 @@
 package com.tas.jsonschema;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -18,9 +18,9 @@ public class JsonSchema {
 	private String title;
 	private URI id;
 	private Type type = Type.OBJECT;
-	private Map<String, Property> properties = new HashMap<String, Property>();
+	private Map<String, Property> properties = new HashMap<>();
 	private Boolean additionalProperties;
-	private List<String> required = new ArrayList<String>();
+	private Set<String> required = new HashSet<>();
 	
 	public JsonSchema() {
 	}
@@ -69,11 +69,11 @@ public class JsonSchema {
 		this.additionalProperties = additionalProperties;
 	}
 
-	public List<String> getRequired() {
+	public Set<String> getRequired() {
 		return required;
 	}
 
-	public void setRequired(List<String> required) {
+	public void setRequired(Set<String> required) {
 		this.required = required;
 	}
 

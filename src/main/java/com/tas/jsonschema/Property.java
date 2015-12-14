@@ -20,9 +20,27 @@ public class Property {
 	private List<String> required = new ArrayList<String>();
 	private Format format;
 	private Integer propertyOrder;
+	private Integer minItems;
 	private Integer minLength;
 	private Integer minimum;
+	private Integer maxItems;
 	private Integer maxLength;
+	public Integer getMinItems() {
+		return minItems;
+	}
+
+	public void setMinItems(Integer minItems) {
+		this.minItems = minItems;
+	}
+
+	public Integer getMaxItems() {
+		return maxItems;
+	}
+
+	public void setMaxItems(Integer maxItems) {
+		this.maxItems = maxItems;
+	}
+
 	private Integer maximum;
 	private String pattern;
 	private Media media;
