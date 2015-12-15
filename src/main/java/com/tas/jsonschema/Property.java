@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Property {
 
 	private Type type;
+	private String id;
 	private String title;
 	private String description;
 	@JsonProperty("default")
@@ -59,6 +60,14 @@ public class Property {
 
 	public void setType(Type type) {
 		this.type = type;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	public String getTitle() {
