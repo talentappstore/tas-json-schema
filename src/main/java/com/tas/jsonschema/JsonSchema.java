@@ -1,8 +1,8 @@
 package com.tas.jsonschema;
 
-import java.net.URI;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,11 +16,11 @@ public class JsonSchema {
 	@JsonProperty("$schema")
 	private String schema;
 	private String title;
-	private URI id;
+	private String id;
 	private Type type = Type.OBJECT;
-	private Map<String, Property> properties = new HashMap<>();
+	private Map<String, Property> properties = new LinkedHashMap<>();
 	private Boolean additionalProperties;
-	private Set<String> required = new HashSet<>();
+	private Set<String> required = new LinkedHashSet<>();
 	
 	public JsonSchema() {
 	}
@@ -41,16 +41,20 @@ public class JsonSchema {
 		this.title = title;
 	}
 
-	public URI getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(URI id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	public Type getType() {
 		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
 	}
 
 	public Map<String, Property> getProperties() {
@@ -73,8 +77,8 @@ public class JsonSchema {
 		return required;
 	}
 
-	public void setRequired(Set<String> required) {
-		this.required = required;
+	public void setRequired(Collection<String> required) {
+		this.required = new LinkedHashSet<>(required);
 	}
 
 }

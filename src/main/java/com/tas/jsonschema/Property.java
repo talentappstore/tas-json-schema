@@ -5,20 +5,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(Include.NON_NULL)
-public class Property {
+@JsonInclude(Include.NON_EMPTY)
+public class Property extends JsonSchema {
 
-	private Type type;
-	private String id;
-	private String title;
 	private String description;
 	@JsonProperty("default")
 	private String defaultText;
-	private List<String> required = new ArrayList<String>();
+	private List<Property> allOf = new ArrayList<>();
+	private List<Property> anyOf = new ArrayList<>();
+	private List<Property> oneOf = new ArrayList<>();
 	private Format format;
 	private Integer propertyOrder;
 	private Integer minItems;
@@ -26,6 +28,27 @@ public class Property {
 	private Integer minimum;
 	private Integer maxItems;
 	private Integer maxLength;
+	private Integer maximum;
+	private String pattern;
+	private Media media;
+	@JsonProperty("enum")
+	private List<String> _enum;
+	private Property items;
+	private Boolean uniqueItems;
+
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalPropertyMap() {
+        return this.additionalProperties;
+    }
+
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+    
 	public Integer getMinItems() {
 		return minItems;
 	}
@@ -42,41 +65,6 @@ public class Property {
 		this.maxItems = maxItems;
 	}
 
-	private Integer maximum;
-	private String pattern;
-	private Media media;
-	@JsonProperty("enum")
-	private List<String> _enum;
-	private Map<String, Property> properties = new HashMap<String, Property>();
-	private Property items;
-	private Boolean uniqueItems;
-	
-	public Property() {
-	}
-
-	public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
-		this.type = type;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
 	public String getDescription() {
 		return description;
@@ -158,12 +146,28 @@ public class Property {
 		this.media = media;
 	}
 
-	public List<String> getRequired() {
-		return required;
+	public List<Property> getAllOf() {
+		return allOf;
 	}
 
-	public void setRequired(List<String> required) {
-		this.required = required;
+	public void setAllOf(List<Property> allOf) {
+		this.allOf = allOf;
+	}
+
+	public List<Property> getAnyOf() {
+		return anyOf;
+	}
+
+	public void setAnyOf(List<Property> anyOf) {
+		this.anyOf = anyOf;
+	}
+
+	public List<Property> getOneOf() {
+		return oneOf;
+	}
+
+	public void setOneOf(List<Property> oneOf) {
+		this.oneOf = oneOf;
 	}
 
 	public List<String> get_enum() {
@@ -172,14 +176,6 @@ public class Property {
 
 	public void set_enum(List<String> _enum) {
 		this._enum = _enum;
-	}
-
-	public Map<String, Property> getProperties() {
-		return properties;
-	}
-
-	public void setProperties(Map<String, Property> properties) {
-		this.properties = properties;
 	}
 
 	public Property getItems() {
@@ -197,5 +193,4 @@ public class Property {
 	public void setUniqueItems(Boolean uniqueItems) {
 		this.uniqueItems = uniqueItems;
 	}
-	
 }
