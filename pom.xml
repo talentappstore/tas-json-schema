@@ -10,15 +10,10 @@
 
 	<distributionManagement>
 		<repository>
-			<id>s3-release</id>
-			<name>TAS Releases</name>
-			<url>s3://tas-maven-repo/releases</url>
+			<id>tas</id>
+			<name>TAS OSS</name>
+			<url>s3://tas-opensource/</url>
 		</repository>
-		<snapshotRepository>
-			<id>s3-snapshot</id>
-			<name>TAS Snapshots</name>
-			<url>s3://tas-maven-repo/snapshots</url>
-		</snapshotRepository>
 	</distributionManagement>
 
 	<dependencies>

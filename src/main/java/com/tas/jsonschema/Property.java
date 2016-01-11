@@ -171,6 +171,9 @@ public class Property extends JsonSchema {
 	}
 
 	public List<String> get_enum() {
+		if (_enum == null) {
+			_enum = new ArrayList<>();
+		}
 		return _enum;
 	}
 
