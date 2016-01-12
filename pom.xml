@@ -12,7 +12,7 @@
 		<repository>
 			<id>tas</id>
 			<name>TAS OSS</name>
-			<url>s3://tas-opensource/</url>
+			<url>s3://tas-opensource/m2/</url>
 		</repository>
 	</distributionManagement>
 
