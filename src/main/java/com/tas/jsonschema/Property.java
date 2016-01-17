@@ -39,6 +39,7 @@ public class Property extends JsonSchema {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    @JsonInclude(Include.ALWAYS)
     @JsonAnyGetter
     public Map<String, Object> getAdditionalPropertyMap() {
         return this.additionalProperties;
