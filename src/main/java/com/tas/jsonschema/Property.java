@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(Include.NON_EMPTY)
+@JsonInclude(Include.NON_NULL)
 public class Property extends JsonSchema {
 
 	private String description;
@@ -171,6 +171,7 @@ public class Property extends JsonSchema {
 		this.oneOf = oneOf;
 	}
 
+	@JsonInclude(Include.NON_EMPTY)
 	public List<String> get_enum() {
 		if (_enum == null) {
 			_enum = new ArrayList<>();
