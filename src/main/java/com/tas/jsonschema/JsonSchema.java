@@ -14,7 +14,7 @@ public class JsonSchema {
 	private String id;
 	private Type type = Type.OBJECT;
 	@JsonInclude(Include.NON_EMPTY)
-	private Map<String, Property> properties = new LinkedHashMap<>();
+	private Map<String, JsonSchema> properties = new LinkedHashMap<>();
 	private Boolean additionalProperties;
 	@JsonInclude(Include.NON_EMPTY)
 	private Set<String> required = new LinkedHashSet<>();
@@ -23,11 +23,11 @@ public class JsonSchema {
 	@JsonProperty("default")
 	private String defaultText;
 	@JsonInclude(Include.NON_EMPTY)
-	private List<Property> allOf = new ArrayList<>();
+	private List<? extends JsonSchema> allOf = new ArrayList<>();
 	@JsonInclude(Include.NON_EMPTY)
-	private List<Property> anyOf = new ArrayList<>();
+	private List<? extends JsonSchema> anyOf = new ArrayList<>();
 	@JsonInclude(Include.NON_EMPTY)
-	private List<Property> oneOf = new ArrayList<>();
+	private List<? extends JsonSchema> oneOf = new ArrayList<>();
 	private Format format;
 	private Integer propertyOrder;
 	private Integer minItems;
@@ -40,7 +40,7 @@ public class JsonSchema {
 	private Media media;
 	@JsonProperty("enum")
 	private List<String> _enum;
-	private Property items;
+	private JsonSchema items;
 	private Boolean uniqueItems;
 
 	@JsonIgnore
@@ -153,27 +153,27 @@ public class JsonSchema {
 		this.media = media;
 	}
 
-	public List<Property> getAllOf() {
+	public List<? extends JsonSchema> getAllOf() {
 		return allOf;
 	}
 
-	public void setAllOf(List<Property> allOf) {
+	public void setAllOf(List<? extends JsonSchema> allOf) {
 		this.allOf = allOf;
 	}
 
-	public List<Property> getAnyOf() {
+	public List<? extends JsonSchema> getAnyOf() {
 		return anyOf;
 	}
 
-	public void setAnyOf(List<Property> anyOf) {
+	public void setAnyOf(List<? extends JsonSchema> anyOf) {
 		this.anyOf = anyOf;
 	}
 
-	public List<Property> getOneOf() {
+	public List<? extends JsonSchema> getOneOf() {
 		return oneOf;
 	}
 
-	public void setOneOf(List<Property> oneOf) {
+	public void setOneOf(List<? extends JsonSchema> oneOf) {
 		this.oneOf = oneOf;
 	}
 
@@ -189,11 +189,11 @@ public class JsonSchema {
 		this._enum = _enum;
 	}
 
-	public Property getItems() {
+	public JsonSchema getItems() {
 		return items;
 	}
 
-	public void setItems(Property items) {
+	public void setItems(JsonSchema items) {
 		this.items = items;
 	}
 
@@ -240,11 +240,11 @@ public class JsonSchema {
 		this.type = type;
 	}
 
-	public Map<String, Property> getProperties() {
+	public Map<String, JsonSchema> getProperties() {
 		return properties;
 	}
 
-	public void setProperties(Map<String, Property> properties) {
+	public void setProperties(Map<String, JsonSchema> properties) {
 		this.properties = properties;
 	}
 
