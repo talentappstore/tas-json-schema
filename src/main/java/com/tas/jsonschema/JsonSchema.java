@@ -13,15 +13,20 @@ public class JsonSchema {
 	private String title;
 	private String id;
 	private Type type = Type.OBJECT;
+	@JsonInclude(Include.NON_EMPTY)
 	private Map<String, Property> properties = new LinkedHashMap<>();
 	private Boolean additionalProperties;
+	@JsonInclude(Include.NON_EMPTY)
 	private Set<String> required = new LinkedHashSet<>();
 
 	private String description;
 	@JsonProperty("default")
 	private String defaultText;
+	@JsonInclude(Include.NON_EMPTY)
 	private List<Property> allOf = new ArrayList<>();
+	@JsonInclude(Include.NON_EMPTY)
 	private List<Property> anyOf = new ArrayList<>();
+	@JsonInclude(Include.NON_EMPTY)
 	private List<Property> oneOf = new ArrayList<>();
 	private Format format;
 	private Integer propertyOrder;
