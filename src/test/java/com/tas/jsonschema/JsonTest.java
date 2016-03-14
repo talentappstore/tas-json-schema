@@ -33,7 +33,7 @@ public class JsonTest {
 		
 		Property enumProperty = new Property();
 		enumProperty.setType(Type.STRING);
-		List<String> enums = new ArrayList<String>();
+		List<String> enums = new ArrayList<>();
 		enums.add("");
 		enums.add("a");
 		enums.add("b");
@@ -47,7 +47,7 @@ public class JsonTest {
 		Property itemsProperty = new Property();
 		itemsProperty.setType(Type.STRING);
 		
-		List<String> itemsEnums = new ArrayList<String>();
+		List<String> itemsEnums = new ArrayList<>();
 		itemsEnums.add("a");
 		itemsEnums.add("z");
 		itemsProperty.set_enum(itemsEnums);
