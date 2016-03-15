@@ -17,21 +17,21 @@ public class JsonTest {
 		JsonSchema jsonSchema = new JsonSchema();
 		jsonSchema.setTitle("Person");
 		
-		Property nameProperty = new Property();
+		JsonSchema nameProperty = new JsonSchema();
 		nameProperty.setType(Type.STRING);
 		nameProperty.setDescription("First and last name");
 		jsonSchema.getProperties().put("Name", nameProperty);
 		
-		Property ageProperty = new Property();
+		JsonSchema ageProperty = new JsonSchema();
 		ageProperty.setType(Type.INTEGER);
 		jsonSchema.getProperties().put("Age", ageProperty);
 		
-		Property favoriteColorProperty = new Property();
+		JsonSchema favoriteColorProperty = new JsonSchema();
 		favoriteColorProperty.setType(Type.STRING);
 		favoriteColorProperty.setFormat(Format.color);
 		jsonSchema.getProperties().put("Favorite color", favoriteColorProperty);
 		
-		Property enumProperty = new Property();
+		JsonSchema enumProperty = new JsonSchema();
 		enumProperty.setType(Type.STRING);
 		List<String> enums = new ArrayList<>();
 		enums.add("");
@@ -41,10 +41,10 @@ public class JsonTest {
 		enumProperty.set_enum(enums);
 		jsonSchema.getProperties().put("Choose", enumProperty);
 		
-		Property arrayProperty = new Property();
+		JsonSchema arrayProperty = new JsonSchema();
 		arrayProperty.setType(Type.ARRAY);
 		arrayProperty.setFormat(Format.checkbox);
-		Property itemsProperty = new Property();
+		JsonSchema itemsProperty = new JsonSchema();
 		itemsProperty.setType(Type.STRING);
 		
 		List<String> itemsEnums = new ArrayList<>();
