@@ -28,7 +28,7 @@ public class JsonSchema {
 	private List<? extends JsonSchema> anyOf = new ArrayList<>();
 	@JsonInclude(Include.NON_EMPTY)
 	private List<? extends JsonSchema> oneOf = new ArrayList<>();
-	private Format format;
+	private String format;
 	private Integer propertyOrder;
 	private Integer minItems;
 	private Integer minLength;
@@ -89,11 +89,11 @@ public class JsonSchema {
 		this.defaultText = defaultText;
 	}
 
-	public Format getFormat() {
+	public String getFormat() {
 		return format;
 	}
 
-	public void setFormat(Format format) {
+	public void setFormat(String format) {
 		this.format = format;
 	}
 
