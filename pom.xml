@@ -14,14 +14,14 @@
 	<distributionManagement>
 		<repository>
 			<id>nexus</id>
-			<url>https://nexus.talentappstore.com/content/repositories/releases</url>
+			<url>https://nexus.aotal.com/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
 		<repository>
 			<id>nexus</id>
-			<url>https://nexus.talentappstore.com/content/repositories/releases</url>
+			<url>https://nexus.aotal.com/repository/maven-releases/</url>
 		</repository>
 	</repositories>
 
@@ -72,7 +72,7 @@
 				</executions>
 				<configuration>
 					<serverId>nexus</serverId>
-					<nexusUrl>https://nexus.talentappstore.com/nexus/</nexusUrl>
+					<nexusUrl>https://nexus.aotal.com/</nexusUrl>
 					<skipStaging>true</skipStaging>
 				</configuration>
 			</plugin>
